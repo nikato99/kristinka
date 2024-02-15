@@ -1,0 +1,98 @@
+/* Existing CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+    font-family: 'Poppins', sans-serif; /* More stylish font */
+    background-image: url('/static/ura.png'); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Make the background fixed */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    color: #5D3B76; /* Dark purple text color for contrast */
+    text-align: center;
+    padding: 40px; /* Increased padding for more space */
+}
+
+.text-container {
+    background-color: #ffffff; /* White background for the text */
+    padding: 20px; /* Padding inside the container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: block; /* Use block to fill the container's width */
+    margin: auto; /* Center horizontally */
+    text-align: center; /* Center align text inside the container */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Maximum width to ensure readability */
+    position: relative; /* Changed from absolute if needed for other content positioning */
+    top: 30%; /* Moves the container down from the top of the parent element */
+    transform: translateY(30%); /* Adjusts the positioning to center the container based on its height */
+}
+
+
+
+h1 {
+    color: #D96C9E; /* A shade of pink that complements purple */
+    margin-bottom: 20px; /* More space between the heading and the form */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Padding around the text for space inside the background */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Allows the element to be sized according to its content */
+    margin: 0 auto 20px; /* Centers the element horizontally and adds space below */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+label {
+    text-align: left;
+    display: block;
+    margin-bottom: 10px; /* Increased spacing */
+    font-weight: 600; /* Bolder labels for clarity */
+}
+
+/* New CSS for button-styled link */
+a[target="_blank"] {
+    display: inline-block;
+    background-color: #D96C9E;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    overflow: hidden; /* Ensure that elements transitioning out are hidden */
+    position: relative; /* Establish a positioning context for absolute children */
+    width: 160px; /* Set a specific width to maintain during transition */
+    height: 48px; /* Set a specific height to maintain button size */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.link-text, .material-icons {
+    transition: opacity 0.3s, transform 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.link-text {
+    opacity: 1;
+}
+
+.material-icons {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5); /* Start smaller and transparent */
+}
+
+a[target="_blank"]:hover {
+    background-color: #f1187d;
+    transform: scale(1.1); /* Enlarge the button */
+}
+
+a[target="_blank"]:hover .link-text {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0); /* Shrink and fade out */
+}
+
+a[target="_blank"]:hover .material-icons {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Grow and fade in */
+}

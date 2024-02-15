@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif; /* More stylish font */
+    background-image: url('/static/voprosi.png'); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Make the background fixed */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    color: #5D3B76; /* Dark purple text color for contrast */
+    text-align: center;
+    padding: 40px; /* Increased padding for more space */
+}
+
+
+h1 {
+    color: #D96C9E; /* A shade of pink that complements purple */
+    margin-bottom: 20px; /* More space between the heading and the form */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Padding around the text for space inside the background */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Allows the element to be sized according to its content */
+    margin: 0 auto 20px; /* Centers the element horizontally and adds space below */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+form {
+    background-color: #ffffff;
+    margin: 20px auto; /* Added some margin to the top for better spacing */
+    padding: 30px; /* More padding for a spacious look */
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    width: 90%;
+    max-width: 400px;
+    transition: box-shadow 0.3s; /* Smooth transition for shadow */
+}
+
+form:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Dynamic shadow on hover */
+}
+
+input[type="text"], button {
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    padding: 15px; /* More padding for a larger touch area */
+    margin-top: 15px; /* Increased spacing */
+    border: 2px solid #EEC0C6; /* Softer border color */
+    border-radius: 8px; /* More rounded corners */
+    box-sizing: border-box;
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input[type="text"]:focus {
+    border-color: #D96C9E; /* Highlight focus with the theme color */
+    outline: none; /* Remove default focus outline */
+}
+
+button {
+    background-color: #D96C9E; /* Pink button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #C0547D; /* A darker shade of pink for hover effect */
+}
+
+label {
+    text-align: left;
+    display: block;
+    margin-bottom: 10px; /* Increased spacing */
+    font-weight: 600; /* Bolder labels for clarity */
+}

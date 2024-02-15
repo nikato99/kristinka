@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>надеюсь ты Кристинка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+    <style>
+        .question { display: none; }
+        .question.active { display: block; }
+    </style>
+</head>
+<body>
+    <h1>тест, правда ли вы Кристина >:(</h1>
+    <form id="quizForm">
+        <!-- Question 1: Name -->
+        <div class="question active" data-question="1">
+            <p>1. ты правда Кристина?</p>
+            <input type="text" name="name" required>
+            <button type="button" onclick="validateAndShowNextQuestion(1, this)">дальше</button>
+        </div>
+        <!-- Question 2: Kristina's Birthday -->
+        <div class="question" data-question="2">
+            <p>2. когда у тебя день рождения?</p>
+            <input type="date" name="birthday" required>
+            <button type="button" onclick="validateAndShowNextQuestion(2, this)">дальше</button>
+        </div>
+        <!-- Question 3: Niko's Birthday -->
+        <div class="question" data-question="3">
+            <p>3. а когда день рождения у Нико?</p>
+            <input type="date" name="nikos_birthday" required>
+            <button type="button" onclick="validateAndShowNextQuestion(3, this)">дальше</button>
+        </div>
+        <!-- Question 4: Reason for Meeting -->
+        <div class="question" data-question="4">
+            <p>4. из за чего мы вообще познакомилсь? (намёк: ютуб)</p>
+            <input type="text" name="meeting_reason" required>
+            <button type="button" onclick="validateAndShowNextQuestion(4, this)">дальше</button>
+        </div>
+        <!-- Question 5: First Private Message Date -->
+        <div class="question" data-question="5">
+            <p>5. наше первое сообщение? (не в группе, дата)</p>
+            <input type="date" name="first_message" required>
+            <button type="button" onclick="validateAndShowNextQuestion(5, this)">дальше</button>
+        </div>
+        <!-- Question 6: Love Calendar Drawing -->
+        <div class="question" data-question="6">
+            <p>6. что нарисовано на нашем "любовном календаре"? (год этого "зверя")</p>
+            <input type="text" name="love_calendar" required>
+            <button type="button" onclick="validateAndShowNextQuestion(6, this)">дальше</button>
+        </div>
+        <!-- Question 7: Kristina Saved in Niko's Phone -->
+        <div class="question" data-question="7">
+            <p>7. как Кристинка записана у Нико в телеге?</p>
+            <input type="text" name="saved_as" required>
+            <button type="button" onclick="validateAndShowNextQuestion(7, this)">дальше</button>
+        </div>
+        <!-- Question 8: Valentine's Question -->
+        <div class="question" data-question="8">
+            <p>8. Ты будешь моей Валентиной? (да / нет)</p>
+            <input type="text" name="valentine" required>
+            <button type="button" onclick="validateAndShowNextQuestion(8, this)">дальше</button>
+        </div>
+        <!-- Question 9: Plans Working Out -->
+        <div class="question" data-question="9">
+            <p>9. наши планы сбудутся? (да / да)</p>
+            <input type="text" name="plans" required>
+            <button type="submit">всё</button>
+        </div>
+    </form>
+
+    <script>
+        const correctAnswers = {
+            1: 'да',
+            2: '2004-03-15', // Kristina's birthday
+            3: '2002-04-25', // Niko's birthday
+            4: 'асмр', // Reason met
+            5: '2024-01-31', // First message
+            6: 'дракон', // Love calendar drawing
+            7: 'кетонал', // Saved in phone as
+            8: 'да', // Valentine
+            9: 'да', // Plans working out
+        };
+
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Iterate through all questions to check answers
+        let allCorrect = true;
+        for (let questionNumber = 1; questionNumber <= 9; questionNumber++) {
+            const inputElement = document.querySelector(`div[data-question="${questionNumber}"] input`);
+            const userInput = inputElement.value.trim().toLowerCase();
+            const correctAnswer = correctAnswers[questionNumber].toLowerCase();
+
+            if (userInput !== correctAnswer) {
+                allCorrect = false;
+                break; // Exit the loop as soon as one incorrect answer is found
+            }
+        }
+
+        // Redirect or alert based on answers' correctness
+        if (allCorrect) {
+            window.location.href = '/welldone'; // Adjust the path as needed
+        } else {
+            alert("не а)");
+        }
+    });
+
+        function validateAndShowNextQuestion(questionNumber, button) {
+            const inputElement = button.previousElementSibling;
+            const userInput = inputElement.value.trim();
+            const isCorrect = correctAnswers[questionNumber].toLowerCase() === userInput.toLowerCase();
+
+            if (userInput && isCorrect) {
+                const currentDiv = document.querySelector(`div[data-question="${questionNumber}"]`);
+                const nextDiv = document.querySelector(`div[data-question="${questionNumber + 1}"]`);
+
+                if (currentDiv) {
+                    currentDiv.classList.remove('active');
+                }
+                if (nextDiv) {
+                    nextDiv.classList.add('active');
+                }
+            } else {
+                alert("не а)");
+            }
+        }
+    </script>
+</body>
+</html>

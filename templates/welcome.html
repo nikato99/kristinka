@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>приуэт</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='welcome.css') }}">
+</head>
+<body>
+    <h1>привет :)</h1>
+    <p>все ответы на русском</p>
+    <form action="/submit_name" method="POST">
+        <label for="name">введите ваше имя:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">продолжить</button>
+    </form>
+</body>
+</html>
